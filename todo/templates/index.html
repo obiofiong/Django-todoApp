@@ -1,0 +1,55 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="todo ">
+            <span class="todo-head"><h2 >Todo App</h2></span>
+        
+            <form action="{% url 'add' %}" method="POST" class="">
+                {% csrf_token %}
+                <div class="input-group">
+                    {{ form.text }}
+                    <span class="input-group-btn input-group-item"> 
+                        <button type="submit" class="btn btn-primary " id="add-btn">Do it</button>
+                    </span>
+                </div>
+            </form>
+
+                    <div class="col-lg-12 ">
+                        <a href="{% url 'delete' %}">
+                            <button type="submit" class="btn btn-block btn-primary " >
+                                Delete Completed Task
+                            </button>
+                        </a>
+                        
+                        <button type="submit" class="btn btn-block btn-primary " >
+                        Reset
+                        </button>
+                    </div>
+            <div class="task ">
+                <ul class="list-group ">
+                    {% for t in mytodo %}
+                        {% if t.complete %}
+                           <li class="list-group-item list-group-item-secondary task-completed">{{t.todotext}} </li>
+                        {% else %}
+                           <li class="list-group-item"> <span >{{t.todotext}}</span> <a href="{% url 'complete' t.id %}" class="float-right"> Done </a> </li>
+
+                        {% endif %}
+                    {% endfor %}
+                 
+                    
+                </ul>
+            </div>
+         </div>    
+    </div>
+</body>
+</html>

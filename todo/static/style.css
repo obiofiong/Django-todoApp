@@ -1,0 +1,44 @@
+.body {
+    color: #999;
+	background: #f5f5f5;
+	font-family: 'Roboto', sans-serif;
+}
+.todo {
+	width: 450px;
+	margin: 70px auto;
+    padding: 30px 10px;
+    background-color: cadetblue;
+    border-radius: 10px;
+}
+.todo-head{
+    text-align: center;
+    color: cornsilk ;
+}
+.input-group{
+    display: flex;
+    margin : 10px auto;
+}
+.input-group-item{
+    margin: 0 5px;
+}
+.task{
+    margin-top: 5px;
+    padding : 10px 10px;
+    height: 200px;
+
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: scroll; 
+    
+}
+.task-completed{
+    color: cornflowerblue;
+    text-decoration-line: line-through;
+    /* color: cadetblue; */
+}
+.task a {
+    text-decoration: none;
+}
+.task a:hover{
+    text-decoration: none;
+    color: blue;
+}
